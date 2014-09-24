@@ -7,17 +7,6 @@ public class SetupTeardownIncluder {
 	private final WikiPage testPage;
 	private final PageCrawler pageCrawler;
 
-	public static String render(PageData pageData) throws Exception {
-
-		return render(pageData, false);
-	}
-
-	public static String render(PageData pageData, boolean isSuite)
-			throws Exception {
-
-		return new SetupTeardownIncluder(pageData).render(isSuite);
-	}
-
 	private SetupTeardownIncluder(PageData pageData) {
 
 		this.pageData = pageData;
@@ -71,5 +60,16 @@ public class SetupTeardownIncluder {
 
 		newPageContent.append("\n!include").append(arg).append(" .")
 				.append(pagePathName).append("\n");
+	}
+
+	public static String render(PageData pageData) throws Exception {
+
+		return render(pageData, false);
+	}
+
+	public static String render(PageData pageData, boolean isSuite)
+			throws Exception {
+
+		return new SetupTeardownIncluder(pageData).render(isSuite);
 	}
 }
