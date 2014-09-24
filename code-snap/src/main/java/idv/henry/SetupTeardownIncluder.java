@@ -64,6 +64,7 @@ public class SetupTeardownIncluder {
 			return;
 		}
 
+		// found inherited page, include it into the new page
 		WikiPagePath pagePath = this.pageCrawler.getFullPath(page);
 		String pagePathName = PathParser.render(pagePath);
 
